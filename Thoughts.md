@@ -1,2 +1,2 @@
-C:\Users\kammo\Pictures\System-Administrator.jpg
+![picture](C:\Users\kammo\Pictures\System-Administrator.jpg)
 
