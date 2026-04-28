@@ -103,13 +103,48 @@ volume size (and explanation / justification)
 
 # Cost estimates
 
-
 summary of cost estimates
+
+- My total month to date cost is $3.24.
+
+- This total comes from my VPC, EC2 t3.micro, S3, and Elastic IP.
+
+
 projected cost according to dashboard (screenshot)
 
 <img width="1870" height="828" alt="image" src="https://github.com/user-attachments/assets/64934fb2-ffc7-472e-b26e-774f33f9241d" />
 -------------------------------------------------------------
 
 cost of instance type
+
+- t3.micro cost $0.0104 usd per hour for linux.
+
 cost of EIP (note, EIP charges only apply when instance is not in use)
+
+
+- EIP cost $0.005 when not in use.
+
+
 cost of AMI
+
+- The AMI Ubuntu 24.04 was a free tier eligible.
+
+
+
+# Installation instructions
+
+
+point to documentation to use as reference
+
+- [Link](https://docs.mealie.io/documentation/getting-started/introduction/)
+
+
+summarize your installation process
+
+- I installed docker and enable it through sysemctl. Next I created a folder named mealie and inside of that I cerated a file called docker-compose.yaml.
+
+- After that I configured the file by copying the content of docker-compose template. Then I opened web browser and connected to the site. 
+
+
+screenshot of software operating on instance
+
