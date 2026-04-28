@@ -106,6 +106,10 @@ volume size (and explanation / justification)
 
 summary of cost estimates
 projected cost according to dashboard (screenshot)
+
+<img width="1870" height="828" alt="image" src="https://github.com/user-attachments/assets/64934fb2-ffc7-472e-b26e-774f33f9241d" />
+-------------------------------------------------------------
+
 cost of instance type
 cost of EIP (note, EIP charges only apply when instance is not in use)
 cost of AMI
