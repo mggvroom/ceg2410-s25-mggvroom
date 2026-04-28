@@ -148,3 +148,10 @@ summarize your installation process
 
 screenshot of software operating on instance
 
+<img width="1907" height="936" alt="image" src="https://github.com/user-attachments/assets/a598c5d2-80ce-4a2e-aabf-3d3002048a7f" />
+
+----------------------------------------------
+
+
+
+
