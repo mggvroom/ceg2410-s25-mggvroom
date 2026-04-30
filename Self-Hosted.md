@@ -175,4 +175,13 @@ this should reflect your Security Groups / Network ACLs / system level firewalls
 screenshots demonstrating different user type access rights
 
 
-- Here a screenshot showing the users I created and the admin 
+- Here a screenshot showing the users I created and the admin
+
+  <img width="1497" height="558" alt="image" src="https://github.com/user-attachments/assets/abdf6fd4-5887-4f7d-aaf6-6ef470aedd38" />
+----------------------------------------------------------------------------------
+
+
+- users permission are only given by the admin
+
+  <img width="1500" height="772" alt="image" src="https://github.com/user-attachments/assets/dc2e681c-51e0-4559-98d8-14b27adbbcf0" />
+
