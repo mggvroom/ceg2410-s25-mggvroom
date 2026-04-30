@@ -185,3 +185,21 @@ screenshots demonstrating different user type access rights
 
 <img width="1492" height="764" alt="image" src="https://github.com/user-attachments/assets/027f7c62-6a62-4171-8495-0246478a615c" />
 
+
+----------------------------------------------------------------------------------
+
+
+# Software features
+
+
+description of demonstrated features
+
+
+- Users are able to import a recipe only by its url.
+
+- users are can click the heart to favorite a recipe and can rate it out of 5 stars.
+
+
+screenshots of features in action
+
+
