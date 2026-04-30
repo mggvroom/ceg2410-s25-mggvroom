@@ -2,26 +2,26 @@
 
 # What software will be set up through this document
 
-- Mealie.io will be set up using docker image and container. 
+- Mealie.io will be set up using a Docker image and container. 
 
--  docker is an application that allows you to run software in a container.
+-  Docker is an application that allows you to run software in a container.
 
-- I'll be using docker image to download the code for mealie.io
+- I'll be using a Docker image to download the code for mealie.io
 
-- I'll use docker container to be able to run mealie.
+- I'll use a Docker container to be able to run Mealie.
 
 
 
 # What the software is
 
 
-Mealie is a food recipe management application that allows users to create recipe by importing it through the recipe url.
+Mealie is a food recipe management application that allows users to create recipes by importing it through the recipe URL.
 
 
 # What this document will cover in terms of self-hosting this software
 
-- This document will cover the aws vpc, ec2, subnetting, firewall rule,
- configurations, backup strategy usign s3, and showing how a user can access the application.
+- This document will cover the AWS VPC, EC2, subnetting, firewall rules,
+ configurations, backup strategy using S3, and showing how a user can access the application.
 
 
 # AWS VPC setup:
@@ -29,44 +29,44 @@ Mealie is a food recipe management application that allows users to create recip
 
 # VPC block (and explanation / justification)
 
-- A vpc is your own netwrok that aws give you.
+- A VPC is your own network that AWS gives you.
 
-- My vpc CIDR block is 10.0.0.0/24 so that is 251 ip usable, I choose that because that was the default cidr block.
+- My VPC CIDR block is 10.0.0.0/24, so that is 251 IP addresses usable. I chose that because that was the default CIDR block.
 
 
 # Subnet block (and explanation / justification)
 
 
-- I created one subnet and the CIDR block is 10.0.0.0/28 so that is 16 usable ip. 
+- I created one subnet and the CIDR block is 10.0.0.0/28, so that is 16 usable IPs. 
 
-- I didn't need alot of ips that why I choose /28.
+- I didn't need a lot of IPs, that's why I chose/28.
 
 
 # Route table rules (and explanation / justification)
 
-- My route tables is associated with my subnet and vpc which allows it to be able to direct incoming and outgoing traffic.
+- My route tables is associated with my subnet and VPC, which allows it to be able to direct incoming and outgoing traffic.
 
-- 0.0.0.0/0 direct the traffic to the internet gateway.
+- 0.0.0.0/0 directs the traffic to the internet gateway.
 
-- 10.0.0.0/24 tarffic staying inside of my vpc.
+- 10.0.0.0/24 traffic staying inside of my VPC.
 
 
 # Network ACL rules (and explanation / justification)
 
-- I allow port 22 and 9000 from my home and wrightstate ip inbound and outbound since nacl is stateless. 
+- I allow port 22 and 9000 from my home and Wright State IP inbound and outbound since nacl is stateless. 
 
-- port 22 is for sshing into the server.
+- Port 22 is for SSHing into the server.
  
-- port 9000 is the port that mealie runs on.
+- Port 9000 is the port that Mealie runs on.
 
 
 # Security Group rules (and explanation / justification)
 
-- I allows port 22 and 9000 from my home and wrightstate ip inbound only since sg are stateful.
+- I allow port 22 and 9000 from my home and Wright State IP inbound only since sg are stateful.
 
-- port 22 is for sshing into the server.
+- Port 22 is for SSHing into the server.
 
-- port 9000 is the port that mealie runs on.
+- Port 9000 is the port that Mealie runs on.
 
 
 # AWS instance setup:
@@ -75,9 +75,9 @@ instance type (and explanation / justification)
 
 - Instance type is t3.micro. 
 
-- I chose that because it included 1 gib of ram,it is cost efficient for mealie.io, and have 2vcpu. 
+- I chose that because it included 1 GB of RAM, it is cost-efficient for mealie.io, and has 2vcpu. 
 
-- That's enough for my application since it's doesn't take alot of space.
+- That's enough for my application since it doesn't take a lot of space.
 
 
 
@@ -85,19 +85,19 @@ AMI (and explanation / justification)
 
 - AMI chosen is Ubuntu Server 24.04. 
 
-- I chose that because since I have been using aws that's what I been using and i'm familiar with the OS.
+- I chose that because, since I have been using AWS, that's what I've been using, and I'm familiar with the OS.
 
-- It include LTS which is ubuntu long-term support that includes security updates and bugs fixes.
+- It includes LTS, which is Ubuntu long-term support that includes security updates and bug fixes.
 
 
 
 volume size (and explanation / justification)
 
-- My instance uses 8GIB as the default volume size. Mealie.io doesn't require a lot of space and I'll mostly be storing files that contain food recipes that gets stored in a docker volume.
+- My instance uses 8 GB as the default volume size. Mealie.io doesn't require a lot of space, and I'll mostly be storing files that contain food recipes that get stored in a Docker volume.
 
 - The volume size is used to store the OS, logs, docker, and mealie image.
 
-- 8GIB is enough to store all those things.
+- 8 GB is enough to store all those things.
 
 
 
@@ -105,7 +105,7 @@ volume size (and explanation / justification)
 
 summary of cost estimates
 
-- My total month to date cost is $3.24.
+- My total month-to-date cost is $3.24.
 
 - This total comes from my VPC, EC2 t3.micro, S3, and Elastic IP.
 
@@ -122,12 +122,12 @@ cost of instance type
 cost of EIP (note, EIP charges only apply when instance is not in use)
 
 
-- EIP cost $0.005 when not in use.
+- EIP costs $0.005 when not in use.
 
 
 cost of AMI
 
-- The AMI Ubuntu 24.04 was a free tier eligible.
+- The AMI Ubuntu 24.04 was a free-tier eligible.
 
 
 
@@ -141,9 +141,9 @@ point to documentation to use as reference
 
 summarize your installation process
 
-- I installed docker and enable it through sysemctl. Next I created a folder named mealie and inside of that I cerated a file called docker-compose.yaml.
+- I installed Docker and enabled it through sysemctl. Next, I created a folder named mealie, and inside of that I created a file called docker-compose.yaml.
 
-- After that I configured the file by copying the content of docker-compose template. Then I opened web browser and connected to the site. 
+- After that, I configured the file by copying the content of the Docker Compose template.  
 
 
 screenshot of software operating on instance
@@ -156,32 +156,32 @@ screenshot of software operating on instance
 
 how server access is being restricted depending on service
 
-- port 22 is only access by the administartion from my home ip and wrightstate ip.
+- Port 22 is only accessible by the administration from my home IP and Wright State IP.
 
-- port 9000 is access by anyone including the administartion from anywhere so they could connect to my site.
+- Port 9000 is accessible by anyone, including the administration, from anywhere, so they could connect to my site.
 
 
 controlling remote server administration vs using the application
 this should reflect your Security Groups / Network ACLs / system level firewalls & management access your software allows
 
 
-- SG has port 22 inbound only from my home and wrightstate ip. it also has port 9000 inbound from any ip that want to connect to my site. 
+- SG has port 22, inbound only from my home and Wright State IP. Port 9000 is accessible to anyone.  
 
-- NACL has port 22 inbound and outbound from my home and wrightstate ip. it also had port 9000 inbound and outbounf from any ip.
+- NACL has port 9000, 22 inbound and outbound from my home and Wright State IP. Port 9000  is accessible to anyone.
 
-- I didn't configure system lebel firewalls.
+- I didn't configure system-level firewalls.
 
 
 screenshots demonstrating different user type access rights
 
 
-- Here a screenshot showing the users I created and the admin
+- Here is a screenshot showing the users I created and the admin
 
   <img width="1497" height="558" alt="image" src="https://github.com/user-attachments/assets/abdf6fd4-5887-4f7d-aaf6-6ef470aedd38" />
 ----------------------------------------------------------------------------------
 
 
-- users permission are only given by the admin
+- Users' permissions are only given by the admin
 
 <img width="1492" height="764" alt="image" src="https://github.com/user-attachments/assets/027f7c62-6a62-4171-8495-0246478a615c" />
 
@@ -197,7 +197,7 @@ description of demonstrated features
 
 - Users are able to import a recipe only by its url.
 
-- users are can click the heart to favorite a recipe and can rate it out of 5 stars.
+- Users can click the heart to favorite a recipe and can rate it out of 5 stars.
 
 
 screenshots of features in action
@@ -217,40 +217,40 @@ screenshots of features in action
 Thoughtful analysis of what good backups will consist of
 
 
-- A good backup will consist of backing up my mealie folder which include the user, recipes, templates, and logs. 
-By using the 3-2-1 rule, which will improve redundancy of my data.
+- A good backup will consist of backing up my mealie folder, which includes the user, recipes, templates, and logs. 
+By using the 3-2-1 rule, which will improve the redundancy of my data.
 
 
 Amount of data to be backed up (estimation)
 
-- My mealie.io data consist of 4.5Megabytes.
+- My mealie.io data consists of 4.5Megabytes.
 
 Backup strategy showing a reflection of the 3-2-1 rule
 
-- I've the mealie.io file backup on aws S3.
+- I have the mealie.io file backup on AWS S3.
 
-- I also have it backup on one of my usb drive at my friend house.
+- I also have it backed up on one of my USB drive at my friend's house.
 
-- lastly is the live data on my ec2.
+- lastly is the live data on my EC2.
 
 
 Estimated recovery time
 
 
-- If my computer was stolen, on a new computer it'll take me 10 minutes to recover my data.
-- I'll have to ssh and will need a new key pair.
-- Since mealie and docker already installed on my server I wouldn't have to do much since my data is saved in S3.
+- If my computer was stolen, on a new computer, it'll take me 10 minutes to recover my data.
+- I'll have to SSH and will need a new key pair.
+- Since Mealie and docker already installed on my server, I wouldn't have to do much since my data is saved in S3.
 
 Estimated time to recovery in case of failure
 
 
-- If my EC2 crashed and stopped working it would take me at least 5minutes to get back my application working.
+- If my EC2 crashed and stopped working, it would take me at least 5 minutes to get my application working.
 
 - I will have to reboot the instance.
 
 - After rebooting, I'll ssh into the server.
 
-- Since docker was enabled through systemctl it will be running and mealie was configure to always restart.
+- Since Docker was enabled through systemctl, it will be running, and Mealie was configured to always restart.
 
 - My data will still be there.
 
@@ -258,12 +258,11 @@ Estimated time to recovery in case of failure
 
 # Common troubleshooting
 
-one or two things that you typically need to troubleshoot when self-hosting this application
+One or two things that you typically need to troubleshoot when self-hosting this application
 can be from a system design perspective (computation resources, networking configurations)
 can be when installing / configuring the software
 
-- Some recipes url failed to import through mealie, because those sites didn't support ld+jason format.
+- Some recipe URLs failed to import through Mealie, because those sites didn't support ld+jason format.
 
 
-- When installing aws cli I created the folder .aws/credentials under ubuntu user. When I ran the command with sudo it was looking inside of /root/.aws 
-so I fixed that by adding the folder in there.
+- When installing AWS CLI I created the folder .aws/credentials under the Ubuntu user. When I ran the command with sudo it was looking inside of /root/.aws and wouldn't work. So I fixed that by adding the folder inside of /root/.
