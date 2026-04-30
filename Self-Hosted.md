@@ -152,6 +152,27 @@ screenshot of software operating on instance
 
 ----------------------------------------------
 
+# Security
+
+how server access is being restricted depending on service
+
+- port 22 is only access by the administartion from my home ip and wrightstate ip.
+
+- port 9000 is access by anyone including the administartion from anywhere so they could connect to my site.
 
 
+controlling remote server administration vs using the application
+this should reflect your Security Groups / Network ACLs / system level firewalls & management access your software allows
 
+
+- SG has port 22 inbound only from my home and wrightstate ip. it also has port 9000 inbound from any ip that want to connect to my site. 
+
+- NACL has port 22 inbound and outbound from my home and wrightstate ip. it also had port 9000 inbound and outbounf from any ip.
+
+- I didn't configure system lebel firewalls.
+
+
+screenshots demonstrating different user type access rights
+
+
+- Here a screenshot showing the users I created and the admin 
