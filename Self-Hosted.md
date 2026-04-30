@@ -205,5 +205,65 @@ screenshots of features in action
 <img width="1494" height="811" alt="image" src="https://github.com/user-attachments/assets/a3ae93c0-ca4f-426e-8557-7e8420f7a5ce" />
 -----------------------------------------------------------------------
 
+
 <img width="1518" height="824" alt="image" src="https://github.com/user-attachments/assets/c1abc1cb-0cd5-4897-897a-2b59d44d1537" />
 ---------------------------------------------------------------------------------
+
+
+
+# Backup policy / disaster recovery
+
+
+Thoughtful analysis of what good backups will consist of
+
+
+- A good backup will consist of backing up my mealie folder which include the user, recipes, templates, and logs. 
+By using the 3-2-1 rule, which will improve redundancy of my data.
+
+
+Amount of data to be backed up (estimation)
+
+- My mealie.io data consist of 4.5Megabytes.
+
+Backup strategy showing a reflection of the 3-2-1 rule
+
+- I've the mealie.io file backup on aws S3.
+
+- I also have it backup on one of my usb drive at my friend house.
+
+- lastly is the live data on my ec2.
+
+
+Estimated recovery time
+
+
+- If my computer was stolen, on a new computer it'll take me 10 minutes to recover my data.
+- I'll have to ssh and will need a new key pair.
+- Since mealie and docker already installed on my server I wouldn't have to do much since my data is saved in S3.
+
+Estimated time to recovery in case of failure
+
+
+- If my EC2 crashed and stopped working it would take me at least 5minutes to get back my application working.
+
+- I will have to reboot the instance.
+
+- After rebooting, I'll ssh into the server.
+
+- Since docker was enabled through systemctl it will be running and mealie was configure to always restart.
+
+- My data will still be there.
+
+
+
+# Common troubleshooting
+
+one or two things that you typically need to troubleshoot when self-hosting this application
+can be from a system design perspective (computation resources, networking configurations)
+can be when installing / configuring the software
+
+- Some recipes url failed to import through mealie, because those sites didn't support ld+jason format.
+
+
+- When installing aws cli I created the folder .aws/credentials under ubuntu user. When I ran the command with sudo it was looking inside of /root/.aws 
+so I fixed that by adding the folder in there.
