@@ -202,4 +202,8 @@ description of demonstrated features
 
 screenshots of features in action
 
+<img width="1494" height="811" alt="image" src="https://github.com/user-attachments/assets/a3ae93c0-ca4f-426e-8557-7e8420f7a5ce" />
+-----------------------------------------------------------------------
 
+<img width="1518" height="824" alt="image" src="https://github.com/user-attachments/assets/c1abc1cb-0cd5-4897-897a-2b59d44d1537" />
+---------------------------------------------------------------------------------
