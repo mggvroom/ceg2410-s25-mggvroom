@@ -183,5 +183,5 @@ screenshots demonstrating different user type access rights
 
 - users permission are only given by the admin
 
-  <img width="1500" height="772" alt="image" src="https://github.com/user-attachments/assets/dc2e681c-51e0-4559-98d8-14b27adbbcf0" />
+<img width="1492" height="764" alt="image" src="https://github.com/user-attachments/assets/027f7c62-6a62-4171-8495-0246478a615c" />
 
